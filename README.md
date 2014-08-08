@@ -27,7 +27,7 @@ activator.sh を activator-1.2.7 というような Typesafe Activator の実態
 ```
 
 若しくは、activator.sh をパスの通っている場所に配置し、Typesafe Activator の
-ディレクトリが置いてある場所を PLAY_DIR_HOME 環境変数に設定してください。
+ディレクトリが置いてある場所を ACTIVATOR_DIR_HOME 環境変数に設定してください。
 
 ```sh
 % ls /opt/activator_home/
@@ -35,7 +35,7 @@ activator.sh を activator-1.2.7 というような Typesafe Activator の実態
     activator-1.2.7
 % cp activator.sh /usr/bin/activator
 % chmod a+x /usr/bin/activator
-% export PLAY_DIR_HOME=/opt/activator_home
+% export ACTIVATOR_DIR_HOME=/opt/activator_home
 % cd /foo/bar/project_root
 % echo '1.2.7' > .activator_version
 % activator run
