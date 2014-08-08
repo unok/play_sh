@@ -1,14 +1,52 @@
 wrapper for play shell
 ======================
 
-Play! Framework のプロジェクトが増えてくると play のバージョンも増えてきます。
+Play Framework のプロジェクトが増えてくると play のバージョンも増えてきます。
 実行する play コマンドを覚えているのが面倒なので、プロジェクトホームに .play_version というファイルを配置して
 その中にバージョン記入しておくと、そのバージョンの play コマンドを実行する wrapper を書きました。
 
-使い方
-------
+2014/8/8  Typesafe Activator にも対応してみました。
 
-play.sh を play-2.0.4 というような Play! Framework の実態があるディレクトリに
+使い方(activator)
+-----------------
+
+activator.sh を activator-1.2.7 というような Typesafe Activator の実態があるディレクトリに
+配置し、 パスを通してください。
+
+
+```sh
+% ls /opt/activator_home/
+    activator-1.2.3
+    activator-1.2.7
+% cp activator.sh /opt/activator_home/activator
+% chmod a+x /opt/activator_home/activator
+% export PATH=/opt/activator_home:$PATH
+% cd /foo/bar/project_root
+% echo '1.2.3' > .activator_version
+% activator run
+```
+
+若しくは、activator.sh をパスの通っている場所に配置し、Typesafe Activator の
+ディレクトリが置いてある場所を PLAY_DIR_HOME 環境変数に設定してください。
+
+```sh
+% ls /opt/activator_home/
+    activator-1.2.3
+    activator-1.2.7
+% cp activator.sh /usr/bin/activator
+% chmod a+x /usr/bin/activator
+% export PLAY_DIR_HOME=/opt/activator_home
+% cd /foo/bar/project_root
+% echo '1.2.7' > .activator_version
+% activator run
+```
+
+
+
+使い方(play)
+----------------
+
+play.sh を play-2.0.4 というような Play Framework の実態があるディレクトリに
 配置し、 パスを通してください。
 
 
@@ -44,6 +82,6 @@ play.sh を play-2.0.4 というような Play! Framework の実態があるデ�
 ライセンス
 ----------
 
-Copyright &copy; 2013 Kazuhiko UNO
+Copyright &copy; 2013-2014 Kazuhiko UNO
 Distributed under the [MIT License][mit]
 [MIT]: http://www.opensource.org/licenses/mit-license.php
